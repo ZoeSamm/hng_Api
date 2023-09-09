@@ -22,12 +22,12 @@ def get_info():
         github_repo_url = "https://github.com/ZoeSamm/hng_Api"
 
         response = {
-            "slack_name": slack_name,
+            "slack_name": "Akinyele oluwakemi",
             "current_day": current_day,
             "utc_time": utc_time,
-            "track": track,
-            "github_file_url": github_file_url,
-            "github_repo_url": github_repo_url,
+            "track": "backend",
+            "github_file_url": "https://github.com/ZoeSamm/hng_Api/blob/main/file_name.ext",
+            "github_repo_url": "https://github.com/ZoeSamm/hng_Api",
             "status_code": 200
         }
 
