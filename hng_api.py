@@ -9,25 +9,26 @@ def get_info():
     slack_name = request.args.get('slack_name')
     track = request.args.get('track')
 
-    # Get current day of the week
+    # Get current day of the week (full name)
     current_day = datetime.datetime.utcnow().strftime('%A')
 
     # Get current UTC time with +/-2 minute validation
-    current_time = datetime.datetime.utcnow()
-    current_time_str = current_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    current_time = datetime.datetime.utcnow()  # Current UTC time
+    current_time -= datetime.timedelta(minutes=2)  # Subtract 2 minutes
+    current_time_str = current_time.strftime('%Y-%m-%dT%H:%M:%SZ')  # Format as ISO 8601
 
     # GitHub URLs
-    github_file_url = 'https://zoesamm.github.io/hng_Api/'
-    github_repo_url = 'https://github.com/ZoeSamm/hng_Api.git'
+    github_file_url = 'https://github.com/ZoeSamm/hng_Api/blob/main/file_name.ext'
+    github_repo_url = 'https://github.com/ZoeSamm/hng_Api'
 
     # JSON response
     response = {
-        "slack_name": "Akinyele oluwakemi",
-        "current_day": "saturday",
-        "utc_time": "2023-09-09 00:29:11",
-        "track": "Backend",
-        "github_file_url": "https://zoesamm.github.io/hng_Api/",
-        "github_repo_url": "https://github.com/ZoeSamm/hng_Api.git",
+        "slack_name": slack_name,
+        "current_day": current_day,
+        "utc_time": current_time_str,
+        "track": track,
+        "github_file_url": github_file_url,
+        "github_repo_url": github_repo_url,
         "status_code": 200
     }
 
@@ -35,3 +36,4 @@ def get_info():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
