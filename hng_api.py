@@ -3,6 +3,7 @@ import datetime
 
 app = Flask(__name__)
 
+
 @app.route('/api', methods=['GET'])
 def get_info():
     # Get query parameters
@@ -34,6 +35,6 @@ def get_info():
 
     return jsonify(response)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
