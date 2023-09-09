@@ -1,4 +1,3 @@
-import json
 from flask import Flask, request, jsonify
 import datetime
 
@@ -18,7 +17,7 @@ def get_info():
 
         current_day = datetime.datetime.now().strftime('%A')
         utc_time = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-        github_file_url = request.url
+        github_file_url = "https://github.com/ZoeSamm/hng_Api/blob/main/file_name.ext"
         github_repo_url = "https://github.com/ZoeSamm/hng_Api"
 
         response = {
